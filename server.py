@@ -9,9 +9,10 @@ import yaml
 from typing import List, Optional
 from pathlib import Path
 
-import nfc
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.staticfiles import StaticFiles
+
+from pcsc_uid import read_uid_hex, NoCardDetectedError, NFCReader
 
 # Configuration
 NFC_MAPPING_FILE = "rules/nfc_mapping.json"
@@ -79,62 +80,69 @@ def load_mapping():
         return {}
 
 def on_connect_wrapper(tag, loop_instance):
-    """
-    Wrapper to pass the loop instance to the actual handler
-    """
-    try:
-        # Log all tag data as requested
-        logger.info(f"Tag detected details: {tag}")
-        
-        uid = tag.identifier.hex().upper()
-        logger.info(f"UID detected: {uid}")
-        
-        mapping = load_mapping()
-        category = mapping.get(uid)
-        
-        if category:
-            logger.info(f"Matched Category: {category} for UID: {uid}")
-            message = json.dumps({"type": "answer", "category": category})
-            asyncio.run_coroutine_threadsafe(manager.broadcast(message), loop_instance)
-        else:
-            logger.info(f"UID {uid} not found in mapping.")
-        
-    except Exception as e:
-        logger.error(f"Error in on_connect_wrapper: {e}")
-
-    # Return True to signal that we processed this tag presence.
-    return False
+    # Legacy wrapper not used with new NFCReader logic, but kept if needed for reference
+    pass
 
 def nfc_worker(loop_instance):
     """
-    Background worker to poll NFC reader.
+    Background worker to poll NFC reader using event-driven StatusChange.
     """
     logger.info("NFC Worker started...")
-    clf = nfc.ContactlessFrontend()
+    
     try:
-        # Try to open the first available USB reader
-        if not clf.open('usb'):
-            logger.error("Could not open NFC reader. Is it connected?")
-            return
-            
-        logger.info(f"NFC Reader opened: {clf.device}")
-        
-        while True:
-            # poll for a tag
-            try:
-                clf.connect(rdwr={'on-connect': lambda tag: on_connect_wrapper(tag, loop_instance)})
-            except Exception as connect_err:
-                 # Sometimes connect raises exceptions on timeout or device errors, catch to keep worker alive
-                 logger.warning(f"clf.connect exception: {connect_err}")
-            
-            # Small delay
-            time.sleep(0.5) 
-            
+        reader = NFCReader()
     except Exception as e:
-        logger.critical(f"NFC Worker fatal error: {e}")
+        logger.error(f"Failed to initialize NFC Reader: {e}")
+        return
+
+    last_uid = None
+    
+    try:
+        while True:
+            try:
+                # Wait for card presence change (timeout 1s to allow periodic checking of exit conditions if needed)
+                # This blocks efficiently until status changes
+                status = reader.wait_for_card(timeout_ms=500)
+                
+                if status == "present":
+                    # Card is present. Read it.
+                    uid = reader.read_uid()
+                    
+                    if uid and uid != last_uid:
+                        logger.info(f"New UID detected: {uid}")
+                        last_uid = uid
+                        
+                        mapping = load_mapping()
+                        category = mapping.get(uid)
+                        
+                        if category:
+                            logger.info(f"Matched Category: {category} for UID: {uid}")
+                            message = json.dumps({"type": "answer", "category": category})
+                            asyncio.run_coroutine_threadsafe(manager.broadcast(message), loop_instance)
+                        else:
+                            logger.info(f"UID {uid} not found in mapping.")
+                            
+                elif status == "empty":
+                    # Card removed
+                    if last_uid is not None:
+                         logger.info("Card removed.")
+                         last_uid = None
+                         
+                elif status == "unavailable":
+                    # Reader might be disconnected
+                    logger.warning("Reader unavailable. Retrying...")
+                    time.sleep(1)
+                    
+            except Exception as e:
+                logger.error(f"NFC Worker iteration error: {e}")
+                time.sleep(1.0)
+                
+    except Exception as e:
+         logger.critical(f"NFC Worker fatal error: {e}")
     finally:
-        clf.close()
+        reader.close()
         logger.info("NFC Reader closed.")
+
 
 # Global reference to the loop
 loop = None
