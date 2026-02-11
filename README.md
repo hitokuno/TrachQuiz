@@ -61,8 +61,8 @@
    2. libusb-1.0.29.7zを解凍
   [7zip](https://www.7-zip.org/download.html)など
    3. 下記ファイルをコピー
-   * MS64\dll\libusb-1.0.dll → C:\Windows\System32
-   * MS32\dll\libusb-1.0.dll → C:\Windows\SysWOW64
+   * VS2022\MS64\dll\libusb-1.0.dll → C:\Windows\System32
+   * VS2022\MS32\dll\libusb-1.0.dll → C:\Windows\SysWOW64
 
 ### 立ち上げ
 
