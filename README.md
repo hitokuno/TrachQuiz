@@ -70,7 +70,7 @@
    ```
    start_server.bat
    ```
-2. `http://localhost:8080` にアクセスします。
+2. `http://localhost:8000` にアクセスします。
 
 ## ライセンス
 MIT License
