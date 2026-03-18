@@ -122,6 +122,10 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
 
     function init() {
+        document.body.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        })
+
         // Event listeners for buttons - Title buttons
         if (kantanBtn) kantanBtn.addEventListener('click', () => {
             console.log('Kantan button clicked');
