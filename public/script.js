@@ -144,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (backToTitleBtn) {
             backToTitleBtn.addEventListener('click', () => {
                 console.log('Back to title button clicked');
-                switchBGM(bgmHome);
                 activateScreen('start-screen');
             });
         }
@@ -152,11 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Background click to go back (How-to-Play screen)
         if (howToPlayScreen) {
             howToPlayScreen.addEventListener('click', (e) => {
-                if (e.target === howToPlayScreen) {
-                    console.log('Background clicked');
-                    switchBGM(bgmHome);
-                    activateScreen('start-screen');
-                }
+                const content = howToPlayScreen.querySelector('.how-to-play-content');
+                const button = howToPlayScreen.querySelector('#btn-back-to-title');
+                
+                if (content && content.contains(e.target)) return;
+                if (button && button.contains(e.target)) return;
+                
+                console.log('Background clicked');
+                activateScreen('start-screen');
             });
         }
         
