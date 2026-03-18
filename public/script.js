@@ -145,6 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
+        // Background click to go back (How-to-Play screen)
+        if (howToPlayScreen) {
+            howToPlayScreen.addEventListener('click', (e) => {
+                if (e.target === howToPlayScreen) {
+                    console.log('Background clicked');
+                    switchBGM(bgmHome);
+                    activateScreen('start-screen');
+                }
+            });
+        }
+        
         if (nextBtn) nextBtn.addEventListener('click', nextQuestion);
         
         // Space key button on red explanation box
