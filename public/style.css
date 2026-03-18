@@ -257,6 +257,7 @@ body {
 
 /* Blue Box Slide Animation */
 .question-box.moved-up {
+    z-index: 20;
     top: 20% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) scale(0.5) !important;
@@ -273,11 +274,11 @@ body {
 @keyframes slideUpFadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translate(-50%, -40%);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(-50%, -50%);
     }
 }
 
