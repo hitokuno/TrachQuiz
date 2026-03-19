@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Keyboard input for NFC/Direct input (1, 2, 3, 4 keys)
         document.addEventListener('keydown', (event) => {
             // Only accept numeric input during quiz screen and when answering
-            if (!quizScreen.classList.contains('active') || !isAnswering) {
+            if (!quizScreen.classList.contains('active-screen') || !isAnswering) {
                 return;
             }
             
