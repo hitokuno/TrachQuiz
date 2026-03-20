@@ -124,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
 
     function init() {
+        document.body.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+        })
+
         // Event listeners for buttons - Title buttons
         if (kantanBtn) kantanBtn.addEventListener('click', () => {
             console.log('Kantan button clicked');
@@ -142,7 +146,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (backToTitleBtn) {
             backToTitleBtn.addEventListener('click', () => {
                 console.log('Back to title button clicked');
-                switchBGM(bgmHome);
+                activateScreen('start-screen');
+            });
+        }
+        
+        // Background click to go back (How-to-Play screen)
+        if (howToPlayScreen) {
+            howToPlayScreen.addEventListener('click', (e) => {
+                const content = howToPlayScreen.querySelector('.how-to-play-content');
+                const button = howToPlayScreen.querySelector('#btn-back-to-title');
+                
+                if (content && content.contains(e.target)) return;
+                if (button && button.contains(e.target)) return;
+                
+                console.log('Background clicked');
                 activateScreen('start-screen');
             });
         }
@@ -166,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Keyboard input for NFC/Direct input (1, 2, 3, 4 keys)
         document.addEventListener('keydown', (event) => {
             // Only accept numeric input during quiz screen and when answering
-            if (!quizScreen.classList.contains('active') || !isAnswering) {
+            if (!quizScreen.classList.contains('active-screen') || !isAnswering) {
                 return;
             }
             
