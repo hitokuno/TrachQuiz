@@ -49,7 +49,7 @@
    ```
    start_server.bat
    ```
-2. `http://localhost:8000` にアクセスします。
+2. `http://localhost:8000` にアクセスします。  
    　　画面をクリックして、サウンドを流します。
 
 ### 問題ファイル
@@ -59,7 +59,7 @@ https://docs.google.com/spreadsheets/d/1B2DvuMOPC8roPZcZ_ojGAI1v9jsbw-REIFknZFl1
 
 jsonファイルをダウンロードして、以下を更新してください。
 
-easy.json:簡単
+easy.json:簡単  
 normal.json:むずい
 
 ### NFCカードの登録
