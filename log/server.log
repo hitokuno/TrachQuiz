@@ -12,3 +12,6 @@
 2026-03-14 10:37:53 - TrachQuizServer - INFO - Tag detected details: Type2Tag ID=874D6098
 2026-03-14 10:37:53 - TrachQuizServer - INFO - UID detected: 874D6098
 2026-03-14 10:37:53 - TrachQuizServer - INFO - Matched Category: × for UID: 874D6098
+2026-04-27 09:07:22 - TrachQuizServer - INFO - Server starting up...
+2026-04-27 09:07:22 - TrachQuizServer - INFO - NFC Worker started...
+2026-04-27 09:07:22 - TrachQuizServer - INFO - NFC Reader opened: ACS ACR122U PN532v1.6 at usb:003:001
