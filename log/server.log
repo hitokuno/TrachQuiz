@@ -12,3 +12,58 @@
 2026-03-14 10:37:53 - TrachQuizServer - INFO - Tag detected details: Type2Tag ID=874D6098
 2026-03-14 10:37:53 - TrachQuizServer - INFO - UID detected: 874D6098
 2026-03-14 10:37:53 - TrachQuizServer - INFO - Matched Category: × for UID: 874D6098
+2026-04-27 09:07:22 - TrachQuizServer - INFO - Server starting up...
+2026-04-27 09:07:22 - TrachQuizServer - INFO - NFC Worker started...
+2026-04-27 09:07:22 - TrachQuizServer - INFO - NFC Reader opened: ACS ACR122U PN532v1.6 at usb:003:001
+2026-04-27 09:09:40 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:09:40 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:09:40 - TrachQuizServer - INFO - UID 04210404320289 not found in mapping.
+2026-04-27 09:10:10 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:10:10 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:10:10 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:10:10 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:10:10 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:10:10 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:10:11 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:10:11 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:10:11 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:10:14 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04ABA068FF6180
+2026-04-27 09:10:14 - TrachQuizServer - INFO - UID detected: 04ABA068FF6180
+2026-04-27 09:10:14 - TrachQuizServer - INFO - Matched Category: × for UID: 04ABA068FF6180
+2026-04-27 09:10:17 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04D92063FF6180
+2026-04-27 09:10:17 - TrachQuizServer - INFO - UID detected: 04D92063FF6180
+2026-04-27 09:10:17 - TrachQuizServer - INFO - Matched Category: 〇 for UID: 04D92063FF6180
+2026-04-27 09:21:17 - TrachQuizServer - INFO - Client connected. Active connections: 1
+2026-04-27 09:21:23 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04D92063FF6180
+2026-04-27 09:21:23 - TrachQuizServer - INFO - UID detected: 04D92063FF6180
+2026-04-27 09:21:23 - TrachQuizServer - INFO - Matched Category: 〇 for UID: 04D92063FF6180
+2026-04-27 09:21:27 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:21:27 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:21:27 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:21:32 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04ABA068FF6180
+2026-04-27 09:21:32 - TrachQuizServer - INFO - UID detected: 04ABA068FF6180
+2026-04-27 09:21:32 - TrachQuizServer - INFO - Matched Category: × for UID: 04ABA068FF6180
+2026-04-27 09:21:33 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04ABA068FF6180
+2026-04-27 09:21:33 - TrachQuizServer - INFO - UID detected: 04ABA068FF6180
+2026-04-27 09:21:33 - TrachQuizServer - INFO - Matched Category: × for UID: 04ABA068FF6180
+2026-04-27 09:21:36 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:21:36 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:21:36 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:21:39 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04ABA068FF6180
+2026-04-27 09:21:39 - TrachQuizServer - INFO - UID detected: 04ABA068FF6180
+2026-04-27 09:21:39 - TrachQuizServer - INFO - Matched Category: × for UID: 04ABA068FF6180
+2026-04-27 09:21:42 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:21:42 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:21:42 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:21:43 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04210404320289
+2026-04-27 09:21:43 - TrachQuizServer - INFO - UID detected: 04210404320289
+2026-04-27 09:21:43 - TrachQuizServer - INFO - Matched Category: 次の問題へ for UID: 04210404320289
+2026-04-27 09:21:45 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04ABA068FF6180
+2026-04-27 09:21:45 - TrachQuizServer - INFO - UID detected: 04ABA068FF6180
+2026-04-27 09:21:45 - TrachQuizServer - INFO - Matched Category: × for UID: 04ABA068FF6180
+2026-04-27 09:21:52 - TrachQuizServer - INFO - Tag detected details: Type2Tag 'NXP NTAG215' ID=04ABA068FF6180
+2026-04-27 09:21:52 - TrachQuizServer - INFO - UID detected: 04ABA068FF6180
+2026-04-27 09:21:52 - TrachQuizServer - INFO - Matched Category: × for UID: 04ABA068FF6180
+2026-04-27 09:23:21 - TrachQuizServer - INFO - Client disconnected. Active connections: 0
+2026-04-27 09:29:44 - TrachQuizServer - INFO - Client connected. Active connections: 1
+2026-04-27 09:30:09 - TrachQuizServer - INFO - Client disconnected. Active connections: 0
